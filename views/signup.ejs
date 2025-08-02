@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - LDC Chat</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fef3c7, #fbcfe8, #e0f2fe);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    h1 {
+      background: linear-gradient(90deg, #ec4899, #8b5cf6, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1c1c1c;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: white;
+      color: #1c1c1c;
+      border: 2px solid #1c1c1c;
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #8b5cf6;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Create Your LDC Chat Account</h1>
+    <form action="/signup" method="POST" enctype="multipart/form-data">
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="Choose a username" required />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Create a password" required />
+
+      <label for="avatar">Avatar Image</label>
+      <input type="file" name="avatar" accept="image/*" required />
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="footer">
+      Already have an account? <a href="/login">Log in</a>
+    </div>
+  </div>
+</body>
+</html>

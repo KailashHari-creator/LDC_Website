@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LDC BITS Goa</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fef3c7, #fbcfe8, #e0f2fe);
+      color: #333;
+    }
+
+    nav {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ec4899;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-weight: 500;
+      color: #6b21a8;
+      transition: color 0.2s ease;
+    }
+
+    nav ul li:hover {
+      color: #8b5cf6;
+    }
+
+    .ldc-activities-heading {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 2rem;
+      background: linear-gradient(90deg, #f43f5e, #ec4899, #8b5cf6, #0ea5e9, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flashfade 2s ease-in-out infinite alternate;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @keyframes flashfade {
+      0% { opacity: 0.7; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.03); }
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 24px rgba(31, 38, 135, 0.2);
+      padding: 2rem;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 40px rgba(31, 38, 135, 0.3);
+    }
+
+    .glass-card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #6b21a8;
+    }
+
+    .glass-card p {
+      font-size: 1rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <img src="LDC_Logo.png" alt="LDC Logo" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 1rem;">
+    <center><div class="logo">The Literary and Debating Club - BITS GOA</div></center>
+    <ul>
+      <li>Home</li>
+      <li>LDC_Lore</li>
+      <li id="Gang_chat">Gang_Chat</li>
+      <li id="Contacts">Contacts</li>
+      <li id="SignUp">SignUp to LDC</li>
+    </ul>
+  </nav>
+
+  <h2 class="ldc-activities-heading">✨ Dive Into The Madness: LDC Activities Ahead 🚀</h2>
+
+  <div class="card-container">
+    <div class="glass-card">
+      <h3>🗣️ Debate Nights</h3>
+      <p>Engage in fiery, fun, and fearless debates that challenge your wit and worldview. We are the best there is so why not you too ?</p>
+      <button style="
+        background-color: #1c1c1c;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#1c1c1c';"
+        onmouseout="this.style.backgroundColor='#1c1c1c'; this.style.color='white';"
+        >
+        EXPLORE MORE
+        </button>
+
+    </div>
+    <div class="glass-card">
+      <h3>📚 Book Clubs</h3>
+      <p>We discuss a book to such depths that even the author would love to join in. What about you ?</p>
+            <button style="
+        background-color: #1c1c1c;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#1c1c1c';"
+        onmouseout="this.style.backgroundColor='#1c1c1c'; this.style.color='white';"
+        >
+        EXPLORE MORE
+        </button>
+    </div>
+    <div class="glass-card">
+      <h3>🎭 Lit Nights</h3>
+      <p>We play fun games that may turn into a fierce JAM or a cool COntact late into the Night. Care to contend ?</p>
+            <button style="
+        background-color: #1c1c1c;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#1c1c1c';"
+        onmouseout="this.style.backgroundColor='#1c1c1c'; this.style.color='white';"
+        >
+        EXPLORE MORE
+        </button>
+    </div>
+    <div class="glass-card">
+      <h3>🏫 Tournaments</h3>
+      <p>We cant contain our skills within the college walls. Join us as we tour the colleges of this country and prove our metle.</p>
+            <button style="
+        background-color: #1c1c1c;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#1c1c1c';"
+        onmouseout="this.style.backgroundColor='#1c1c1c'; this.style.color='white';"
+        >
+        EXPLORE MORE
+        </button>
+    </div>
+    <div class="glass-card">
+      <h3>🌈 Contentions</h3>
+      <p>We din't spare even Waves. The BPD event which we organize is sup[er famous. You could be part of that too ! C'mon in and see how.</p>
+            <button style="
+        background-color: #1c1c1c;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#1c1c1c';"
+        onmouseout="this.style.backgroundColor='#1c1c1c'; this.style.color='white';"
+        >
+        EXPLORE MORE
+        </button>
+    </div>
+    <div class="glass-card">
+      <h3>📝 Other events</h3>
+      <p>We're so active, one page can never fit all that w edo. Looking for more ? Perhaps this will show you just what you need. Explore more of what we do at LDC.</p>
+            <button style="
+        background-color: #1c1c1c;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#1c1c1c';"
+        onmouseout="this.style.backgroundColor='#1c1c1c'; this.style.color='white';"
+        >
+        EXPLORE MORE
+        </button>
+    </div>
+  </div>
+  <script>
+    document.getElementById("Contacts").addEventListener("click", function() {
+      window.location.href = "/contacts";
+    });
+    document.getElementById("Gang_chat").addEventListener("click", function() {
+      window.location.href = "/Gang_Chat";
+    });
+    document.getElementById("SignUp").addEventListener("click", function() {
+      window.location.href = "/signup";
+    });
+  </script>
+</body>
+</html>

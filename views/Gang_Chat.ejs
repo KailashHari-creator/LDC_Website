@@ -1,0 +1,315 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LDC Chat</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #fef3c7, #fbcfe8, #e0f2fe);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 1rem;
+      background: linear-gradient(90deg, #f43f5e, #ec4899, #8b5cf6, #0ea5e9, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flashfade 2s ease-in-out infinite alternate;
+    }
+
+    #messages {
+      width: 80%;
+      max-width: 600px;
+      height: 400px;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    .msg {
+      padding: 10px;
+      margin-bottom: 10px;
+      background: white;
+      border-radius: 6px;
+    }
+
+    .user {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      width: 80%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    button {
+      background-color: #1c1c1c;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: white;
+      color: #1c1c1c;
+    }
+  </style>
+</head>
+<body>
+  <h1>LDC Chat - Welcome, <%= username %> 👋</h1>
+
+  <div id="messages"></div>
+
+  <form id="chatForm">
+    <input id="msgInput" autocomplete="off" placeholder="Message..." />
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    const socket = io();
+    const form = document.getElementById("chatForm");
+    const input = document.getElementById("msgInput");
+    const messages = document.getElementById("messages");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit("chat message", input.value);
+        input.value = "";
+      }
+    });
+
+    socket.on("chat message", (msg) => {
+      const div = document.createElement("div");
+      div.className = "msg";
+      div.innerHTML = `<span class="user">${msg.user}:</span> ${msg.text}`;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    });
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LDC Chat</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #fef3c7, #fbcfe8, #e0f2fe);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    h1 {
+      background: linear-gradient(90deg, #f43f5e, #ec4899, #8b5cf6, #0ea5e9, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flashfade 2s ease-in-out infinite alternate;
+    }
+
+    .logout {
+      background-color: #1c1c1c;
+      color: white;
+      border: 2px solid white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .logout:hover {
+      background: white;
+      color: #1c1c1c;
+    }
+
+    #chatContainer {
+      display: flex;
+      width: 90%;
+      max-width: 1000px;
+      gap: 20px;
+    }
+
+    #messages {
+      flex: 3;
+      height: 400px;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    .msg {
+      padding: 10px;
+      margin-bottom: 10px;
+      background: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    button {
+      background-color: #1c1c1c;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: white;
+      color: #1c1c1c;
+    }
+
+    #onlineUsers {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(6px);
+      padding: 15px;
+      border-radius: 12px;
+      height: 400px;
+      overflow-y: auto;
+    }
+
+    .user-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .user-item img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LDC Chat - Welcome, <%= username %> 👋</h1>
+    <a class="logout" href="/logout">Logout</a>
+  </header>
+
+  <div id="chatContainer">
+    <div id="messages"></div>
+    <div id="onlineUsers">
+      <h3>Online</h3>
+      <div id="userList">
+        <ul id="online-users"></ul>
+      </div>
+    </div>
+  </div>
+
+  <form id="chatForm">
+    <input id="msgInput" autocomplete="off" placeholder="Message..." />
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    const socket = io();
+    const form = document.getElementById("chatForm");
+    const input = document.getElementById("msgInput");
+    const messages = document.getElementById("messages");
+    const userList = document.getElementById("userList");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit("chat message", input.value);
+        input.value = "";
+      }
+    });
+
+    socket.on("chat message", (msg) => {
+      const div = document.createElement("div");
+      div.className = "msg";
+      div.innerHTML = `
+        <img src="${msg.avatar}" class="avatar" />
+        <span class="user">${msg.user}:</span> ${msg.text}
+      `;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    });
+
+    socket.on("updateUsers", (users) => {
+            const list = document.getElementById("online-users");
+            list.innerHTML = '';
+            users.forEach(u => {
+              const li = document.createElement("li");
+              console.log(u);
+              li.innerHTML = `<img src="${u.avatar}" width="30" style="border-radius: 50%; margin-right: 8px;"> ${u.username}`;
+              list.appendChild(li);
+            });
+          });
+  </script>
+</body>
+</html>
