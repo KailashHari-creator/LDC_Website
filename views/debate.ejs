@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LDC | Debates</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fef3c7, #fbcfe8, #e0f2fe);
+      color: #333;
+    }
+
+    nav {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ec4899;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-weight: 500;
+      color: #6b21a8;
+      transition: color 0.2s ease;
+    }
+
+    nav ul li:hover {
+      color: #8b5cf6;
+    }
+
+    .ldc-activities-heading {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 2rem;
+      background: linear-gradient(90deg, #f43f5e, #ec4899, #8b5cf6, #0ea5e9, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flashfade 2s ease-in-out infinite alternate;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @keyframes flashfade {
+      0% { opacity: 0.7; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.03); }
+    }
+
+    .HeroContainer {
+      padding: 2rem;
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('debate_background.jpg.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      margin: 2rem auto;
+      max-width: 900px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      color: #111;
+    }
+
+    .HeroContainer p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      font-weight: 450;
+      color: #000000;
+    }
+
+    .cards-section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .debate-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      width: 300px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+
+    .debate-card:hover {
+      transform: scale(1.02);
+    }
+
+    .debate-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .debate-card .content {
+      padding: 1rem;
+    }
+
+    .debate-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #7e22ce;
+    }
+
+    .poll {
+      margin-top: 1rem;
+    }
+
+    .poll label {
+      margin-right: 1rem;
+    }
+
+    .infoButton {
+      background-color: #6b21a8;
+      color: white;
+      border: none;
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .statusButton {
+      background-color: #ec4899;
+      color: white;
+      border: none;
+      margin-left: 10px;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: crosshair;
+      transition: background-color 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="LDC_Logo.png" alt="LDC Logo" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 1rem;">
+    <div class="logo">The Literary and Debating Club - BITS GOA</div>
+    <ul>
+      <li>Home</li>
+      <li>LDC_Lore</li>
+      <li id="Gang_chat">Gang_Chat</li>
+      <li id="Contacts">Contacts</li>
+      <li id="SignUp">SignUp to LDC</li>
+    </ul>
+  </nav>
+
+  <div class="HeroContainer">
+  <h2 class="ldc-activities-heading">Debate Section</h2>
+  <center>
+    <p>Welcome to the debate section of LDC BITS Goa. Here you can find information about upcoming debates, past debates, and how to participate.</p>
+    <button onclick=window.location.href='/createDebate' style="margin-top: 1rem; padding: 0.7rem 1.2rem; background-color: #6366f1; color: white; border: none; border-radius: 5px;">Create a Debate</button>
+  </center>
+</div>
+
+
+  <div class="cards-section">
+    <!-- Past Debate 1 -->
+    <div class="debate-card">
+      <img src="debate1.jpg" alt="Debate Image">
+      <div class="content">
+        <h3>This House Regrets Africa's reliance on foreign equity financing as a tool for economic development.</h3>
+        <button class="infoButton" onclick="window.location.href='/debateInfo?id=1'">
+            More Details
+        </button>
+        <button class="statusButton">
+            Past Debate
+        </button>
+      </div>
+    </div>
+
+    <!-- Past Debate 2 -->
+    <div class="debate-card">
+      <img src="debate2.jpg" alt="Debate Image">
+      <div class="content">
+        <h3>This house believes that it is in the interest of India to abandon strategic ambiguity in international relations.</h3>
+        <button class="infoButton" onclick="window.location.href='/debateInfo?id=1'">
+            More Details
+        </button>
+        <button class="statusButton">
+            Past Debate
+        </button>
+      </div>
+    </div>
+
+    <!-- Upcoming Debate -->
+    <div class="debate-card">
+      <img src="upcoming.jpg" alt="Debate Image">
+      <div class="content">
+        <h3>Motion Yet to be released</h3>
+        <button class="infoButton" onclick="window.location.href='/debateInfo?id=1'">
+            More Details
+        </button>
+        <button class="statusButton">
+            Upcoming Debate
+        </button>
+    </div>
+  </div>
+</body>
+</html>

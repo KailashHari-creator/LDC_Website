@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debate Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+    .hero {
+      background-image: url('debate_image.jpg'); /* Replace with your debate image */
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 1px 1px 5px black;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .tab-container {
+      display: flex;
+      margin: 20px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      border-bottom: 3px solid #6366f1;
+      color: #111827;
+    }
+
+    .tab-content {
+      padding: 20px;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero" style="background-image: url('<%= debateImage %>');">
+    <h1>Motion: This House Would Ban Autonomous Weapon Systems</h1>
+</div>
+
+  <div class="tab-container">
+    <div class="tab active" onclick="switchTab('summary')">Team Summaries</div>
+    <div class="tab" onclick="switchTab('oa')">Chair's Oral Adjudication</div>
+  </div>
+
+  <div id="summary" class="tab-content active">
+    <h3>Opening Government</h3>
+    <p>Outlined the humanitarian risks posed by autonomous weapons and emphasized accountability gaps.</p>
+
+    <h3>Opening Opposition</h3>
+    <p>Argued that such weapons reduce human casualties and increase strategic precision.</p>
+
+    <h3>Closing Government</h3>
+    <p>Added philosophical depth on moral agency, reinforcing why bans are ethically necessary.</p>
+
+    <h3>Closing Opposition</h3>
+    <p>Questioned enforceability of bans and emphasized geopolitical balance.</p>
+  </div>
+
+  <div id="oa" class="tab-content">
+    <h3>Chair's Oral Adjudication</h3>
+    <p>
+      The win goes to Closing Government for bringing in unique analysis about accountability and
+      ethics that substantially shifted the debate. Closing Opposition was strong but slightly repetitive.
+    </p>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelector(`.tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -179,6 +179,19 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get('/debate', (req, res) => {
+  res.render('debate');
+});
+app.get('/createDebate', (req, res) => {
+  res.render('createDebate');
+});
+app.get('/debateInfo', (req, res) => {
+  const debateId = req.query.id;
+  if (!debateId) return res.status(400).send("Debate ID is required");
+  // Here you would fetch debate details from the database using debateId
+  res.render('debateInfo', { debateId });
+});
+
 app.post("/login", async (req, res) => {
   const username = req.body.username;
   if (!username) return res.redirect("/login");
